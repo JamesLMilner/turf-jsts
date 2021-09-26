@@ -13,7 +13,8 @@
   ],
   "author": "Björn Harrtell <bjorn@wololo.org>",
   "contributors": [
-    "Denis Carriere <@DenisCarriere>"
+    "Denis Carriere <@DenisCarriere>",
+    "James Milner"
   ],
   "keywords": [
     "Turf",
@@ -24,15 +25,18 @@
     "Topology",
     "Geometry"
   ],
-  "dependencies": {
-    "jsts": "*"
-  },
   "license": "(EDL-1.0 OR EPL-1.0)",
+  "dependencies": {
+    "@babel/preset-env": "^7.15.6",
+    "jsts": "2.7.1"
+  },
   "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-node-resolve": "*",
-    "rollup-plugin-terser": "*",
     "rollup": "*",
     "rollup-plugin-buble": "*",
+    "rollup-plugin-terser": "*",
     "rollup-plugin-uglify": "*"
   },
   "repository": {
