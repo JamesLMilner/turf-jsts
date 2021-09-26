@@ -1,30 +1,21 @@
-import buble from 'rollup-plugin-buble'
-import uglify from 'rollup-plugin-uglify'
+import buble from "rollup-plugin-buble";
+import { terser } from "rollup-plugin-terser";
+import { nodeResolve } from "@rollup/plugin-node-resolve";
 
-const input = 'src/index.js'
+const input = "src/index.js";
 
-export default [{
-  input,
-  output: {
-    file: 'jsts.mjs',
-    format: 'es'
+export default [
+  {
+    input,
+    plugins: [nodeResolve()],
+    output: [
+      {
+        file: "dist/jsts.min.js",
+        format: "umd",
+        name: "jsts",
+        sourcemap: true,
+        plugins: [buble(), terser()],
+      },
+    ],
   },
-  plugins: [buble()]
-},
-{
-  input,
-  output: {
-    file: 'jsts.js',
-    format: 'cjs'
-  },
-  plugins: [buble()]
-},
-{
-  input,
-  output: {
-    file: 'jsts.min.js',
-    format: 'umd',
-    name: 'jsts'
-  },
-  plugins: [buble(), uglify()]
-}]
+];

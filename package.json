@@ -24,42 +24,23 @@
     "Topology",
     "Geometry"
   ],
+  "dependencies": {
+    "jsts": "*"
+  },
   "license": "(EDL-1.0 OR EPL-1.0)",
   "devDependencies": {
-    "@std/esm": "*",
-    "chai": "*",
-    "cheerio": "*",
-    "expect.js": "*",
-    "git-rev-sync": "*",
-    "jsdoc": "*",
-    "mocha": "*",
-    "react-scripts": "*",
+    "@rollup/plugin-node-resolve": "*",
+    "rollup-plugin-terser": "*",
     "rollup": "*",
     "rollup-plugin-buble": "*",
-    "rollup-plugin-uglify": "*",
-    "standard": "*",
-    "uglify-js": "*"
+    "rollup-plugin-uglify": "*"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/DenisCarriere/turf-jsts.git"
-  },
-  "standard": {
-    "globals": [
-      "describe",
-      "it",
-      "jsts",
-      "ol"
-    ]
+    "url": "git://github.com/turf/turf-jsts.git"
   },
   "scripts": {
-    "prepublish": "rollup -c rollup.config.js",
-    "test": "NODE_PATH=src mocha -r @std/esm --recursive test/auto/node test/manual",
-    "test-manual": "NODE_PATH=src mocha -r @std/esm test/manual",
-    "create-react-app": "react-scripts build"
-  },
-  "@std/esm": {
-    "esm": "js",
-    "cjs": true
+    "build": "rollup -c rollup.config.js",
+    "test": "npm run build && node test/test.js"
   }
 }
